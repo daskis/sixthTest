@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 });
 app.post("/test", (req, res) => {
     bcrypt.hash("admin", 10, (hash) => {
-        connection.query(`INSERT INTO admin (login, password) values ("login", "${password}");`)
+        connection.query(`INSERT INTO admin (login, password) values ("login", "${hash}");`)
     })
 })
 app.listen(PORT, () => {
